@@ -1,0 +1,82 @@
+{
+  "Windfowl Feather": {
+    "id": 5360,
+    "price": 259
+  },
+  "Undyed Velveteen": {
+    "id": 5326,
+    "price": 169
+  },
+  "Undyed Linen": {
+    "id": 5327,
+    "price": 411
+  },
+  "Undyed Cotton Cloth": {
+    "id": 5325,
+    "price": 52
+  },
+  "Turquoise Green Dye": {
+    "id": 5786,
+    "price": 334
+  },
+  "Sylphic Silk": {
+    "id": 7028,
+    "price": 693
+  },
+  "Sylphic Lamppost": {
+    "id": 6496,
+    "price": 21780
+  },
+  "Sylphic Lamp Tree": {
+    "id": 6495,
+    "price": 26136
+  },
+  "Straw": {
+    "id": 5342,
+    "price": 9
+  },
+  "Shale Brown Dye": {
+    "id": 5759,
+    "price": 216
+  },
+  "Qiqirn Brown Dye": {
+    "id": 5751,
+    "price": 334
+  },
+  "Marsh Green Dye": {
+    "id": 5777,
+    "price": 216
+  },
+  "Linen Yarn": {
+    "id": 5336,
+    "price": 186
+  },
+  "Lime Green Dye": {
+    "id": 5773,
+    "price": 216
+  },
+  "Glamour Dispeller": {
+    "id": 7621,
+    "price": 500
+  },
+  "Crow Feather": {
+    "id": 5352,
+    "price": 21
+  },
+  "Cotton Yarn": {
+    "id": 5334,
+    "price": 22
+  },
+  "Cactuar Green Dye": {
+    "id": 5779,
+    "price": 334
+  },
+  "Aldgoat Green Dye": {
+    "id": 5753,
+    "price": 216
+  },
+  "Acorn Brown Dye": {
+    "id": 5755,
+    "price": 334
+  }
+}
