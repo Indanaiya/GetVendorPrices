@@ -10,7 +10,7 @@ stored_item_values_address = "btvendoritems.json"
 server = "Cerberus"
 
 
-def getItemsFromUniversalis(item_values=None):
+def getItemsFromUniversalis(item_values=None, min_sales=0):
     with open(stored_item_values_address) as f:
         stored_item_values = json.load(f)
         if not item_values:
@@ -38,8 +38,9 @@ def getItemsFromUniversalis(item_values=None):
     #print(*["=" for i in range(len(header_string))], sep="")
     data_to_print = []
     for k, v in sorted_prices:
-        data_to_print.append(
-            f"{str(v['profit']):>{price_per_colwidth}} | {str(k)}({str(v['sales'])})")
+        if v['sales'] >= min_sales:
+          data_to_print.append(
+              f"{str(v['profit']):>{price_per_colwidth}} | {str(k)}({str(v['sales'])})")
 
     print(header_title)
     # Prints enough = to cover the width of the widest point of the table
@@ -49,4 +50,4 @@ def getItemsFromUniversalis(item_values=None):
 
 
 if __name__ == "__main__":
-    getItemsFromUniversalis()
+    getItemsFromUniversalis(min_sales=10)
