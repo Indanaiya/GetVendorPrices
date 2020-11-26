@@ -1,5 +1,7 @@
 import json
 import requests
+import asyncio
+from aiohttp import ClientSession
 
 universalis_url = "https://universalis.app/api/"
 server = "Cerberus"
@@ -393,15 +395,17 @@ items = {
 }
 
 
-def getItemsFromUniversalis(item_values=items, min_sales=0):
+async def getItemsFromUniversalis(item_values=items, min_sales=0, session=None):
+    if session == None:
+        session = ClientSession()
     item_prices = {}
     for i in item_values:
         print("Fetching: " + i)
-        with requests.request("GET", universalis_url + server + "/" + str(item_values[i]['id']) + "?entries=1") as response:
+        async with session.get(universalis_url + server + "/" + str(item_values[i]['id']) + "?entries=1") as response:
             if response == None:
                 print(item_values[i]['id'] + " returned None")
                 break
-            response_json = response.json()
+            response_json = await response.json()
             price = response_json['listings'][0]['pricePerUnit'] if len(
                 response_json['listings']) > 0 else 0
             avg_price = response_json['averagePrice'] - item_values[i]['price']
@@ -451,5 +455,8 @@ if __name__ == "__main__":
         print("Invalid input, defaulting to ten")
         min_sales_int = 10
 
-    getItemsFromUniversalis(min_sales=min_sales_int)
+    loop=asyncio.get_event_loop()
+    session = ClientSession()
+    loop.run_until_complete(getItemsFromUniversalis(min_sales=min_sales_int, session=session))
+    loop.run_until_complete(session.close())
     input("Press enter to exit...")
