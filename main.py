@@ -1,5 +1,3 @@
-import json
-import requests
 import asyncio
 from aiohttp import ClientSession
 
@@ -395,9 +393,8 @@ items = {
 }
 
 
-async def getItemsFromUniversalis(item_values=items, min_sales=0, session=None):
-    if session == None:
-        session = ClientSession()
+async def getItemsFromUniversalis(item_values=items, min_sales=0):
+    session = ClientSession()
     item_prices = {}
     for i in item_values:
         print("Fetching: " + i)
@@ -444,6 +441,7 @@ async def getItemsFromUniversalis(item_values=items, min_sales=0, session=None):
     print(*["=" for i in range(max([len(string)
                                     for string in data_to_print] + [len(header_title)]))], sep="")
     print(*data_to_print, sep="\n")
+    await session.close()
 
 
 if __name__ == "__main__":
@@ -456,8 +454,6 @@ if __name__ == "__main__":
         min_sales_int = 10
 
     loop = asyncio.get_event_loop()
-    session = ClientSession()
     loop.run_until_complete(getItemsFromUniversalis(
-        min_sales=min_sales_int, session=session))
-    loop.run_until_complete(session.close())
+        min_sales=min_sales_int))
     input("Press enter to exit...")
