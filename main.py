@@ -236,7 +236,7 @@ items = {
         "id": 5490,
         "price": 216
     },
-    "Black Pepper":{
+    "Black Pepper": {
         "id": 4830,
         "price": 13
     },
@@ -244,7 +244,7 @@ items = {
         "id": 4828,
         "price": 4
     },
-    "Coral Pink Dye":{
+    "Coral Pink Dye": {
         "id": 5741,
         "price": 334
     },
@@ -260,7 +260,7 @@ items = {
         "id": 5808,
         "price": 334
     },
-    "Lavender Purple Dye":{
+    "Lavender Purple Dye": {
         "id": 5805,
         "price": 216
     },
@@ -312,7 +312,7 @@ items = {
         "id": 4847,
         "price": 2
     },
-    "Amalj'aa Pavis Shield":{
+    "Amalj'aa Pavis Shield": {
         "id": 6687,
         "price": 21780
     },
@@ -328,7 +328,7 @@ items = {
         "id": 5091,
         "price": 13
     },
-    "Coerl Yellow Dye":{
+    "Coerl Yellow Dye": {
         "id": 5767,
         "price": 216
     },
@@ -356,7 +356,7 @@ items = {
         "id": 5089,
         "price": 617
     },
-    "Mythril Rivets":{
+    "Mythril Rivets": {
         "id": 5099,
         "price": 583
     },
@@ -455,8 +455,9 @@ if __name__ == "__main__":
         print("Invalid input, defaulting to ten")
         min_sales_int = 10
 
-    loop=asyncio.get_event_loop()
+    loop = asyncio.get_event_loop()
     session = ClientSession()
-    loop.run_until_complete(getItemsFromUniversalis(min_sales=min_sales_int, session=session))
+    loop.run_until_complete(getItemsFromUniversalis(
+        min_sales=min_sales_int, session=session))
     loop.run_until_complete(session.close())
     input("Press enter to exit...")
